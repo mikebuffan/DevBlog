@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+	
+  before_filter :authenticate, :except => [:index, :show]
+  
   # GET /posts
   # GET /posts.xml
   def index
@@ -7,7 +10,6 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @posts }
-      format.json { render :json => @posts }
     end
   end
 

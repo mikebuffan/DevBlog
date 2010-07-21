@@ -1,4 +1,30 @@
-<%= render :partial => "post", :collection => @posts %>
+<p class="notice">
+	<%= notice %>
+</p> 
+<p>  
+	<b>Title:</b>  
+	<%= @post.title %>
+</p> 
+<p>  
+	 <b>Name:</b>  
+	<%= @post.name %> 
+</p> 
+<p>  
+	<b>Body:</b>  
+	<%= @post.body %> 
+</p> 
+
+<p>
+	<b>Tags:</b>
+	<%= join_blog_tags(@post) %>
+</p>
+
+<h2>Comments</h2>
+<%= render 	:partial => "blog_comments/blog_comment",
+			:collection => @post.blog_comments %>
+
+<h2>Add a comment:</h2> 
+<%= render "blog_comments/form" %>
 
 <p>
 	<%= link_to 'Edit', edit_post_path(@post) %> |
